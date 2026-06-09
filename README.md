@@ -8,3 +8,4 @@ Organización Computacional
 | ----------------------------------------- | --------- |
 | Carlos Gonzalo Fernando Montezuma Morales | 202504046 |
 | Alvaro Moisés Girón Morales | 202501955 |
+| Josselyn Gabriela Mendoza Camargo | 202500317 |
