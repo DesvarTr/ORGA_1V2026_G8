@@ -102,13 +102,12 @@ void apagarVentilador()
 
 ### Evidencias
 
-Agrega aquí las fotografías de tu montaje físico.
-
-```md
+### Montaje del ventilador
 ![Montaje del ventilador](fotos/Montaje1.jpeg)
 
+### Montaje de la puerta
 ![Montaje de la puerta](fotos/Montaje2.jpeg)
-```
+
 
 ---
 
