@@ -105,9 +105,9 @@ void apagarVentilador()
 Agrega aquí las fotografías de tu montaje físico.
 
 ```md
-![Montaje del ventilador](fotos/Montaje1.jpg)
+![Montaje del ventilador](fotos/Montaje1.jpeg)
 
-![Montaje de la puerta](fotos/Montaje2.jpg)
+![Montaje de la puerta](fotos/Montaje2.jpeg)
 ```
 
 ---
