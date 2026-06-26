@@ -4,31 +4,27 @@
 
 
 
+# Video explicativo
+
+```
+https://youtu.be/sQ2Ajn-4dlA
+```
+
 
 
 # Introducción
 
 En este proyecto se desarrolló el sistema bajo el nombre SmartHome GT, un sistema destinado a la automatización de una vivienda utilizando Arduino UNO.
 
-
-
 El proyecto tiene como principal aplicación, representar la automatización que se puede realizar en modelos reales a gran escala, pero de una forma que sea educativa y accesible para el estudiante.
 
-
-
 En este documento se desarrollará el análisis y la parte técnica del proyecto, justificando y dando explicación a cada uno de los módulos solicitados por el proyecto.  Así como también se expondrán los problemas encontrados, soluciones aplicadas, procesos de creación y funcionalidades implementadas.
-
-
 
 # Descripción del problema
 
 Se requiere que una vivienda tenga interconectados diferentes dispositivos como luces LED, un ventilador (utilizando un motor DC), un motor servo y una pantalla LCD. En este caso para lograr el modelo se realizó una maqueta para representar el funcionamiento de cada módulo.
 
-
-
 El proyecto incluye tres partes principales, la creación del circuito y las conexiones con los componentes, el código de arduino y el manejo de su memoria, y finalmente la conexción a un módulo electrónico para funcionamiento Bluetooth.
-
-
 
 De esta forma, utilizando estos componentes, se logró automatizar acciones en la casa a través de diversos modos y finalmente ell flujo de trabajo es el siguiente:
 
@@ -38,17 +34,11 @@ De esta forma, utilizando estos componentes, se logró automatizar acciones en l
 
 - Tercero: El módulo bluetooth espera una nueva instrucción para cambiar de modo, el Arduino mantiene el último modo que le fue implementado.
 
-
-
 # Lógica del sistema
 
 Para la lógica de este proyecto principalmente se utilizan los pines digitales del arduino controlados directamente desde el microcontrolador, esto quiere decir que no hay diseño digital ni secuencial puro implementado en el sistema, únicamente depende del código del arduino.
 
-
-
 Dentro del código del arduino podemos encontrar diversas aplicaciones y funcionalidades que si hacen uso de lógica y requieren ciertas condiciones basadas en los modos seleccionados, estas son:
-
-
 
 * Código condicional para elegir un modo, que hace que el display demuestre el modo que está activo
 
@@ -62,31 +52,19 @@ Dentro del código del arduino podemos encontrar diversas aplicaciones y funcion
 
 * Código para los LEDs de cada escenario, como también del motor DC (ventilador)
 
-
-
 A través de la configuración de pines inicial y del código dedicado a cada una de estas funcionalidades, tenemos finalmente la parte lógica del sistema, que se  encarga en todo momento de mantener la parte física en funcionamiento.
-
-
 
 # Funciones booleanas y diagrama de estados
 
-
-
 Ya que no es necesario el uso directo de lógica combinacional, únicamente se cuenta con diagrama de estados para este proyecto.
 
-
-
 ![Alt text](docimgs/diagramaEstados.png) 
-
-
 
 # Diagrama de circuito
 
 Este diagrama representa las conexiones del circuito en una simulación de proteus funcional
 
 ![Alt text](docimgs/diagramaCircuito.png)
-
-
 
 # Equipo y presupuesto
 
@@ -109,12 +87,27 @@ Este diagrama representa las conexiones del circuito en una simulación de prote
 
 **Total: Q284.25**
 
-
-
 # Conclusiones y recomendaciones
 
-+ 
-
-
++ Es necesario entender primero el funcionamiento de pines analógicos y digitales para acelerar el proceso de diseño de código
+  
+  
++ Se debe recurrir a una herramienta de explicación para optimizar el tiempo al momento de implementar librerías, ya que la documentación puede ser poco accesible
+  
+  
++ Es inispensable conocer la conexión de los módulos físicos para el funcionamiento adecuado
+  
+  
++ La mejor forma de configurar el código es a través de variables al inicio del código que hagan referencia a los números de los pines, esto ya que en caso cambiar pines solo se cambia una variable.
 
 # Configuración de bluetooth
+
+Para la configuración del modelo bluetooth se utilizaron diversos métodos en el archivo .ino el cual fue cargado al microcontrolador Arduino. En esto métodos podemos encontrar diversas funciones que nos auxilian al momento de conectar un dispositivo externo. Principalmente funciona únicamente para comunicar los dispositivos, pero también debemos tomar en cuenta el formato de los inputs.
+
+
+
+Para que funcione correctamente la lectura del archivo **.org** como también el cambio de modo (a través de texto) en el dispositivo externo conectado a bluetooth (a través del componente HC-06) es necesario declarar métodos que lean constantemente el input que se le provee al serial. En este caso, se debe escribir el nombre específico del modo, como lo puede ser "modo_relajado", de no escribirse de manera exacta lanzará error y se debe ingresar nuevamente.
+
+
+
+Finalmente, para lograr una configuración exitosa, se debe tener en cuenta la configuración inicada con el texto "conf_ini" y debe terminar con "conf:fin", de forma que el sistema detiene su funcionamiento al leer las instrucciones para poder cambiarlas, o en su defecto rechazarlas.
